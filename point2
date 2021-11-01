@@ -1,0 +1,38 @@
+print("""
+==================
+| Selamat Datang |
+==================
+1. Login
+2. Buat Akun
+3. Keluar
+==================
+""")
+nama_awal = "User"
+sandi_awal = "user"
+data_akun = []
+maksimal_kesalahan = 3
+beranda = str(input("Pilih Menu : "))
+while maksimal_kesalahan>=1: 
+    if beranda == "1" :
+        usernama = input("Masukkan Nama Pengguna :")
+        sandi = input("Masukkan Sandi :")
+        if usernama == nama_awal or usernama == (data_akun[0]):
+            if sandi == sandi_awal or sandi == (data_akun[1]):
+                print ("Akun Berhasil Masuk")
+                beranda = str(input("Pilih Pilihan Berikut : "))
+            else :
+                maksimal_kesalahan -= 1
+                print("Masukan Salah :", maksimal_kesalahan )
+        else :
+            maksimal_kesalahan-=1
+            print("Masukan Salah :", maksimal_kesalahan )
+    elif beranda == "2" :
+        username = input("Masukkan Nama Akun : ")
+        sandi = input("Masukkan Sandi Akun : ")
+        data_akun = [username, sandi]
+        print("Daftar Berhasil")
+        beranda = str(input("Pilih Pilihan Berikut : "))
+    else :
+        beranda == "3"
+        print("Telah Keluar")
+        break
