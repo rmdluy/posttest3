@@ -1,0 +1,80 @@
+import datetime
+print("""
+=====================
+|  DAFTAR DISKON    |
+=====================
+1. Setiap Pembelian 3 Minuman sebesar 10%
+2. Setiap Pembelian 2 Makanan sebesar 5%
+3. Setiap pembayaran melalui E-money sebesar 5%
+4. Saat weekend sebesar 5%
+5. Saat weekdays sebesar 10%
+===============================================
+  """)
+pilihan="y"
+while pilihan=="y":
+    print("""
+    =================================
+    |       Cafe Hijau Sepaku       |
+    =================================
+    1. Bakso Kuah Hijau  : Rp 17.000
+    2. Mie Ayam          : Rp 14.000
+    3. Nasi Goreng       : Rp 15.000
+    4. Teh Es/Panas      : Rp 5.000
+    5. Es Kopi Gula Aren : Rp 8.000
+    6. Es Teh Tarik      : Rp 8.000
+    =================================
+    """)
+    pesan=str(input("masukkan list abjad menu ="))
+    jumlahpesan=int(input("masukkan jumlah pesanan ="))
+    if pesan == "1":
+        listnama= "Bakso Kuah Hijau"
+        harga = 17000
+        diskon = 10 if jumlahpesan >= 3 else 0
+        totalharga = (harga*jumlahpesan)
+    elif pesan == "2":
+        listnama= "Mie Ayam"
+        harga = 14000
+        diskon = 10 if jumlahpesan >= 3 else 0
+        totalharga = (harga*jumlahpesan)
+    elif pesan == "3":
+        listnama= "Nasi goreng"
+        harga = 15000
+        diskon = 10 if jumlahpesan >= 3 else 0
+        totalharga = (harga*jumlahpesan)
+    elif pesan == "4":
+        listnama= "Teh Es/Panas"
+        harga = 5000
+        diskon = 5 if jumlahpesan >= 2 else 0
+        totalharga = (harga*jumlahpesan)
+    elif pesan == "5":
+        listnama= "Es Kopi Gula Aren"
+        harga = 8000
+        diskon = 5 if jumlahpesan >= 2 else 0
+        totalharga = (harga*jumlahpesan)
+    elif pesan == "6":
+        listnama= "Es Teh Tarik"
+        harga = 8000
+        diskon = 5 if jumlahpesan >= 2 else 0
+        totalharga = (harga*jumlahpesan)
+    else:
+        listnama = "-"
+        harga = "-"
+        diskon = "-"
+        totalharga = "-"
+        pilihan=input("menu tidak tersedia, silahkan masukkan abjad menu yang tersedia silahkan ulangi kembali y/t =")
+    metodepembayaran = input("Apa anda ingin membayar dengan E-money? (y/n)")
+    diskonpembayaran = 5 if metodepembayaran == "y" else 0
+    diskonhari = 10 if datetime.datetime.today().weekday() < 5 else 5
+    totaldiskon = diskon + diskonpembayaran + diskonpembayaran
+    totalbayar = totalharga - (totaldiskon * totalharga / 100)
+    print("==========================")
+    print("|       Cafe Hijau       |")
+    print("==========================")
+    print("Menu :",listnama)
+    print("Jumlah Pesan :", jumlahpesan)
+    print("Harga :", harga)
+    print("Diskon :", totaldiskon,"%")
+    print("--------------------------")
+    print("Jumlah Bayar :", totalbayar)
+    print("--------------------------")
+    pilihan=input("apakah anda ingin order kembali y/t =")
